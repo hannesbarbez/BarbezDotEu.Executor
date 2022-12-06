@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Barbez.eu - Executor" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnOpenNextLinkInBrowser" Content="Open Next Link In Browser" Margin="127,0,10,25" VerticalAlignment="Bottom" Height="30" Click="BtnOpenNextLinkInBrowser_Click"/>
+        <Button x:Name="btnOpenNextLinkInBrowser" Content="Open Next Link In Browser" Margin="127,0,10,25" VerticalAlignment="Bottom" Height="30" Click="BtnOpenNextLinkInBrowser_Click" IsDefault="True"/>
         <Button x:Name="btnReset" Content="Reset" Margin="10,0,0,25" VerticalAlignment="Bottom" Height="30" HorizontalAlignment="Left" Width="112" Click="BtnReset_Click"/>
         <TextBox x:Name="tbInput" AcceptsReturn="True" Margin="10,10,10,60" TextWrapping="Wrap"/>
         <Label x:Name="lblAbout" Content="www.barbez.eu" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,1" Foreground="#FF0066CC" Cursor="Hand" MouseDown="LblAbout_MouseDown" TouchDown="LblAbout_MouseDown" />
