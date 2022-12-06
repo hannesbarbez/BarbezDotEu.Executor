@@ -36,32 +36,20 @@ namespace BarbezDotEu.Executor.Wpf.Logic
             p.Start();
         }
 
-        public static void OpenWebsite(string url, bool anonymous)
+        public static void OpenWebsite(string url)
         {
             Process myProcess = new();
             try
             {
                 // true is the default, but it is important not to set it to false
                 myProcess.StartInfo.UseShellExecute = true;
-                myProcess.StartInfo.FileName = GetDefaultBrowserPath();
-
-                //if (anonymous) myProcess.StartInfo.Arguments += "-private-window";
-                if (anonymous) myProcess.StartInfo.Arguments += "-private";
-                myProcess.StartInfo.Arguments += " " + url;
-
+                myProcess.StartInfo.FileName = url;
                 myProcess.Start();
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message, "Error");
             }
-        }
-
-        private static string GetDefaultBrowserPath()
-        {
-            string key = @"http\shell\open\command";
-            RegistryKey registryKey = Registry.ClassesRoot.OpenSubKey(key, false);
-            return ((string)registryKey.GetValue(null, null)).Split('"')[1];
         }
     }
 }

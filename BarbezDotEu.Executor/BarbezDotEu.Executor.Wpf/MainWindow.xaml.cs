@@ -1,4 +1,5 @@
 ﻿using BarbezDotEu.Executor.Wpf.Logic;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -11,7 +12,7 @@ namespace BarbezDotEu.Executor.Wpf
     {
         private string[] keywords;
         private bool firstClick = true;
-        private char[] charsToSplitFrom = new char[] { ',' };
+        private readonly string[] splitters = new string[] { ",", Environment.NewLine };
         private int index = 0;
 
         public MainWindow()
@@ -19,7 +20,7 @@ namespace BarbezDotEu.Executor.Wpf
             InitializeComponent();
         }
 
-        private void btnOpenNextLinkInBrowser_Click(object sender, RoutedEventArgs e)
+        private void BtnOpenNextLinkInBrowser_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -28,14 +29,14 @@ namespace BarbezDotEu.Executor.Wpf
                 {
                     if (firstClick)
                     {
-                        this.keywords = tbInput.Text.Split(charsToSplitFrom);
+                        this.keywords = tbInput.Text.Split(splitters, StringSplitOptions.RemoveEmptyEntries);
                         firstClick = false;
                     }
                     if (this.keywords != null)
                     {
                         if (this.keywords.Length > 0)
                         {
-                            Generic.OpenWebsite(this.keywords[this.index], true);
+                            Generic.OpenWebsite(this.keywords[this.index]);
                             this.index++;
                         }
                     }
@@ -49,7 +50,7 @@ namespace BarbezDotEu.Executor.Wpf
             }
         }
 
-        private void btnReset_Click(object sender, RoutedEventArgs e)
+        private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
             this.firstClick = true;
             this.index = 0;
@@ -57,14 +58,14 @@ namespace BarbezDotEu.Executor.Wpf
             this.tbInput.Clear();
         }
 
-        private void lblAbout_MouseDown(object sender, MouseButtonEventArgs e)
+        private void LblAbout_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Generic.RunExternalProcess("explorer.exe", "http://" + lblAbout.Content + "/BarbezDotEu.Executor/");
+            Generic.OpenWebsite("http://" + lblAbout.Content);
         }
 
-        private void lblAbout_MouseDown(object sender, TouchEventArgs e)
+        private void LblAbout_MouseDown(object sender, TouchEventArgs e)
         {
-            Generic.RunExternalProcess("explorer.exe", "http://" + lblAbout.Content + "/BarbezDotEu.Executor/");
+            Generic.OpenWebsite("http://" + lblAbout.Content);
         }
     }
 }
