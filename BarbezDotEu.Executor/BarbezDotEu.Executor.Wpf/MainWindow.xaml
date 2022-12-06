@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarbezDotEu.Executor.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Barbez.eu - Executor" Height="450" Width="800">
     <Grid>
         <Button x:Name="btnOpenNextLinkInBrowser" Content="Open Next Link In Browser" Margin="127,0,10,25" VerticalAlignment="Bottom" Height="30" Click="BtnOpenNextLinkInBrowser_Click"/>
         <Button x:Name="btnReset" Content="Reset" Margin="10,0,0,25" VerticalAlignment="Bottom" Height="30" HorizontalAlignment="Left" Width="112" Click="BtnReset_Click"/>
