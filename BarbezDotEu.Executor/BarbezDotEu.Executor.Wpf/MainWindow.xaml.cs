@@ -67,5 +67,10 @@ namespace BarbezDotEu.Executor.Wpf
         {
             Generic.OpenWebsite("http://" + lblAbout.Content);
         }
+
+        private void BtnCopyPastable_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(TbCopyPastable.Text);
+        }
     }
 }
