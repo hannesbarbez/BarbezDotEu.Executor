@@ -5,9 +5,6 @@ using System.Windows.Input;
 
 namespace BarbezDotEu.Executor.Wpf
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private string[] keywords;
@@ -20,7 +17,7 @@ namespace BarbezDotEu.Executor.Wpf
             InitializeComponent();
         }
 
-        private void BtnOpenNextLinkInBrowser_Click(object sender, RoutedEventArgs e)
+        private void BtnOpenNextItem_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -45,7 +42,7 @@ namespace BarbezDotEu.Executor.Wpf
             }
             catch
             {
-                MessageBox.Show("End of the list! You opened everything. Thanks!", "All Done.", MessageBoxButton.OK);
+                MessageBox.Show("End of the list! You went through everything.", "All Done.", MessageBoxButton.OK);
                 this.tbInput.IsEnabled = true;
             }
         }
