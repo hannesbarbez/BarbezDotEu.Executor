@@ -43,7 +43,7 @@ namespace BarbezDotEu.Executor.Wpf
             catch
             {
                 MessageBox.Show("End of the list! You went through everything.", "All Done.", MessageBoxButton.OK);
-                this.tbInput.IsEnabled = true;
+                BtnReset_Click(sender, e);
             }
         }
 
