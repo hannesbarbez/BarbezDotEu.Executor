@@ -17,6 +17,18 @@ namespace BarbezDotEu.Executor.Wpf
             InitializeComponent();
         }
 
+        private void BtnExecuteAll_Click(object sender, RoutedEventArgs e)
+        {
+            this.keywords = tbInput.Text.Split(splitters, StringSplitOptions.RemoveEmptyEntries);
+            if (this.keywords != null)
+            {
+                foreach (var item in this.keywords)
+                {
+                    Generic.OpenWebsite(item);
+                }
+            }
+        }
+
         private void BtnOpenNextItem_Click(object sender, RoutedEventArgs e)
         {
             try
